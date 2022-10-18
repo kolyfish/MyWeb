@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--部屬打招呼的bean-->
+	<bean id="hello" class="com.tibame.domain.Hello"/>
+	
+	<!-- 部屬一個TibameHello元件規範 -->
+	<bean id="tibamehello" class="com.tibame.domain.TibameHello">
+	<!-- 建構子injection-->
+		<constructor-arg index="0">
+			<value>中華電信</value>
+		</constructor-arg>
+	</bean>
+	<bean id="tibamehello2" class="com.tibame.domain.TibameHello">
+	<!-- Property setter injection -->
+		<property name="companyName">
+			<value>TSMC</value>
+		</property>
+	</bean>
+	
+		<!-- 空參數建構子-->
+		<bean id="tibamehello3" class="com.tibame.domain.TibameHello"
+			init-method="init" autowire="constructor">
+		<!--注入控制反轉-->
+		
+		</bean>
+		
+		<!--依存關係的注入方法這邊的id boss對應到下面一行的bean id com 的property name="boss"用ref去兩者串接-->
+		<bean id="boss" class="com.tibame.domain.Boss">
+			<property name="name">
+				<value>張三豐</value>
+			</property>
+		</bean>
+		
+		<bean id="com" class="com.tibame.domain.Company">
+			<!-- 依存注入反轉 ref="boss"反轉到上面那個bean-->
+			<property name="boss" ref="boss">
+			</property>
+		</bean>
+	
+</beans>
