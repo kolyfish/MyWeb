@@ -159,7 +159,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
 	<dependency>
 		<groupId>org.projectlombok</groupId>
 		<artifactId>lombok</artifactId>
-		<version>1.16.18</version>
+		<version>1.18.26</version>
 	</dependency>
 	
 	<!-- httpclient -->
