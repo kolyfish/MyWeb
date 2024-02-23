@@ -11,7 +11,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
   <description/>
   <properties>
   	<jdk.version>1.8</jdk.version>
-	<spring.version>5.3.14</spring.version>
+	<spring.version>5.3.32</spring.version>
 	<hibernate.version>5.2.12.Final</hibernate.version>
 	<xmlFileName>testng.xml</xmlFileName>
 	<testng.version>6.9.4</testng.version>
